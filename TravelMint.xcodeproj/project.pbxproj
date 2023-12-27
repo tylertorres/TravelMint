@@ -15,6 +15,8 @@
 		2F2107572B3CBAC6000F319E /* TicketmasterFoundation in Frameworks */ = {isa = PBXBuildFile; productRef = 2F2107562B3CBAC6000F319E /* TicketmasterFoundation */; };
 		2F21075E2B3CBB2E000F319E /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F21075D2B3CBB2E000F319E /* SearchView.swift */; };
 		2F2107602B3CBB3D000F319E /* AddressResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F21075F2B3CBB3D000F319E /* AddressResult.swift */; };
+		2F2107632B3CBC26000F319E /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F2107622B3CBC26000F319E /* LocationService.swift */; };
+		2F2107662B3CBCE9000F319E /* DataFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F2107652B3CBCE9000F319E /* DataFormatter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		2F21074A2B3CBAAB000F319E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		2F21075D2B3CBB2E000F319E /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		2F21075F2B3CBB3D000F319E /* AddressResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressResult.swift; sourceTree = "<group>"; };
+		2F2107622B3CBC26000F319E /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
+		2F2107652B3CBCE9000F319E /* DataFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataFormatter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +66,8 @@
 				2F2107582B3CBAD6000F319E /* App */,
 				2F21075A2B3CBAEC000F319E /* Models */,
 				2F2107592B3CBAE6000F319E /* Screens */,
+				2F2107612B3CBC0A000F319E /* Services */,
+				2F2107642B3CBCDB000F319E /* Utils */,
 				2F2107472B3CBAAB000F319E /* Assets.xcassets */,
 				2F2107492B3CBAAB000F319E /* Preview Content */,
 			);
@@ -106,6 +112,22 @@
 				2F21075D2B3CBB2E000F319E /* SearchView.swift */,
 			);
 			path = Search;
+			sourceTree = "<group>";
+		};
+		2F2107612B3CBC0A000F319E /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				2F2107622B3CBC26000F319E /* LocationService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		2F2107642B3CBCDB000F319E /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				2F2107652B3CBCE9000F319E /* DataFormatter.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -187,7 +209,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				2F21075E2B3CBB2E000F319E /* SearchView.swift in Sources */,
+				2F2107662B3CBCE9000F319E /* DataFormatter.swift in Sources */,
 				2F2107602B3CBB3D000F319E /* AddressResult.swift in Sources */,
+				2F2107632B3CBC26000F319E /* LocationService.swift in Sources */,
 				2F2107442B3CBAAA000F319E /* TravelMintApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
