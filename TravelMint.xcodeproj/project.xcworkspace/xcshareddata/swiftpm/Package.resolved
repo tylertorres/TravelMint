@@ -1,0 +1,14 @@
+{
+  "pins" : [
+    {
+      "identity" : "ios-ignitesdk",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/ticketmaster/iOS-IgniteSDK.git",
+      "state" : {
+        "revision" : "dcb2e6bbc4b179e0f92c4d58c9fb5ee76d518577",
+        "version" : "1.4.0"
+      }
+    }
+  ],
+  "version" : 2
+}
