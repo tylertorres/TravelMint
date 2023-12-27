@@ -24,16 +24,22 @@ class TicketmasterService {
 extension TicketmasterService {
     
     // Search For Events By Location
-    func searchForEvents(_ location: CLCircularRegion) {
+    func searchForEvents(_ location: CLCircularRegion, dateRange: (start: Date, end: Date)? = nil) {
+        var criteria = DiscoveryEventSearchCriteria()
+        criteria.location = location
         
+        discoveryService?.eventSearch(criteria) { response in
+            switch response {
+            case .success(let results):
+                print(results)
+            case .failure(let error):
+                print(error)
+            }
+        }
     }
-    
     
     // Search For Events By Filter Text
-    func searchForEvents(_ text: String) {
-        
-    }
-    
+    func searchForEvents(_ text: String) {}
 }
 
 
