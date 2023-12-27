@@ -19,6 +19,7 @@
 		2F2107662B3CBCE9000F319E /* DataFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F2107652B3CBCE9000F319E /* DataFormatter.swift */; };
 		2F2107692B3CBE4F000F319E /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F2107682B3CBE4F000F319E /* Configuration.swift */; };
 		2F21076B2B3CC176000F319E /* TicketmasterService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F21076A2B3CC176000F319E /* TicketmasterService.swift */; };
+		2F21076D2B3CCE7A000F319E /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F21076C2B3CCE7A000F319E /* SearchViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,8 @@
 		2F2107652B3CBCE9000F319E /* DataFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataFormatter.swift; sourceTree = "<group>"; };
 		2F2107682B3CBE4F000F319E /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
 		2F21076A2B3CC176000F319E /* TicketmasterService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketmasterService.swift; sourceTree = "<group>"; };
+		2F21076C2B3CCE7A000F319E /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
+		2F21076E2B3CD21A000F319E /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +126,8 @@
 			children = (
 				2F2107672B3CBDE6000F319E /* Ticketmaster */,
 				2F2107622B3CBC26000F319E /* LocationService.swift */,
+				2F21076C2B3CCE7A000F319E /* SearchViewModel.swift */,
+				2F21076E2B3CD21A000F319E /* Config.xcconfig */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -224,6 +229,7 @@
 			files = (
 				2F2107692B3CBE4F000F319E /* Configuration.swift in Sources */,
 				2F21076B2B3CC176000F319E /* TicketmasterService.swift in Sources */,
+				2F21076D2B3CCE7A000F319E /* SearchViewModel.swift in Sources */,
 				2F21075E2B3CBB2E000F319E /* SearchView.swift in Sources */,
 				2F2107662B3CBCE9000F319E /* DataFormatter.swift in Sources */,
 				2F2107602B3CBB3D000F319E /* AddressResult.swift in Sources */,

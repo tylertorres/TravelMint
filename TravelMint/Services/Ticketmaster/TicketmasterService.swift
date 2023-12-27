@@ -10,14 +10,13 @@ import TicketmasterFoundation
 import TicketmasterDiscoveryAPI
 import CoreLocation
 
-
 class TicketmasterService {
     
     static let shared = TicketmasterService()
 
     private var configuration: Configuration?
 
-    private(set) var discoveryService: DiscoveryService?
+    private var discoveryService: DiscoveryService?
 }
 
 // MARK: Discovery Service API Calls
