@@ -45,7 +45,7 @@ extension TicketmasterService {
 // MARK: Discovery Service Setup
 extension TicketmasterService {
     
-    func configure(configuration: Configuration, completion: @escaping (_ success: Bool) -> Void) {
+    func configure(configuration: Configuration) {
         guard !configuration.apiKey.isEmpty else {
             fatalError("TicketMaster api key must be set in order to use ; go to https://developer.ticketmaster.com")
         }
@@ -59,10 +59,9 @@ extension TicketmasterService {
             }
             
             self.discoveryService = TMDiscoveryAPI.shared.discoveryService
+            self.configuration = configuration
             
             print("Discovery Service Configured")
-            
-            completion(true)
         }
     }
 }

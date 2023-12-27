@@ -17,5 +17,11 @@ class SearchViewModel: ObservableObject {
          ticketmasterService: TicketmasterService = TicketmasterService.shared) {
         self.locationService = locationService
         self.ticketmasterService = ticketmasterService
+        configureTMService()
+    }
+    
+    private func configureTMService() {
+        let configuration = Configuration(apiKey: EnvironmentManager.getTicketmasterAPIKey())
+        self.ticketmasterService.configure(configuration: configuration)
     }
 }

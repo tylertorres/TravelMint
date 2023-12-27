@@ -20,6 +20,8 @@
 		2F2107692B3CBE4F000F319E /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F2107682B3CBE4F000F319E /* Configuration.swift */; };
 		2F21076B2B3CC176000F319E /* TicketmasterService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F21076A2B3CC176000F319E /* TicketmasterService.swift */; };
 		2F21076D2B3CCE7A000F319E /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F21076C2B3CCE7A000F319E /* SearchViewModel.swift */; };
+		2F2107712B3CD424000F319E /* EnvironmentManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F2107702B3CD424000F319E /* EnvironmentManager.swift */; };
+		2F2107732B3CD48A000F319E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F2107722B3CD48A000F319E /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +37,9 @@
 		2F21076A2B3CC176000F319E /* TicketmasterService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketmasterService.swift; sourceTree = "<group>"; };
 		2F21076C2B3CCE7A000F319E /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		2F21076E2B3CD21A000F319E /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
+		2F21076F2B3CD374000F319E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2F2107702B3CD424000F319E /* EnvironmentManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnvironmentManager.swift; sourceTree = "<group>"; };
+		2F2107722B3CD48A000F319E /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +77,7 @@
 			children = (
 				2F2107582B3CBAD6000F319E /* App */,
 				2F21075A2B3CBAEC000F319E /* Models */,
+				2F2107742B3CD4FC000F319E /* Resources */,
 				2F2107592B3CBAE6000F319E /* Screens */,
 				2F2107612B3CBC0A000F319E /* Services */,
 				2F2107642B3CBCDB000F319E /* Utils */,
@@ -127,7 +133,7 @@
 				2F2107672B3CBDE6000F319E /* Ticketmaster */,
 				2F2107622B3CBC26000F319E /* LocationService.swift */,
 				2F21076C2B3CCE7A000F319E /* SearchViewModel.swift */,
-				2F21076E2B3CD21A000F319E /* Config.xcconfig */,
+				2F2107702B3CD424000F319E /* EnvironmentManager.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -136,6 +142,7 @@
 			isa = PBXGroup;
 			children = (
 				2F2107652B3CBCE9000F319E /* DataFormatter.swift */,
+				2F2107722B3CD48A000F319E /* Constants.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -147,6 +154,15 @@
 				2F21076A2B3CC176000F319E /* TicketmasterService.swift */,
 			);
 			path = Ticketmaster;
+			sourceTree = "<group>";
+		};
+		2F2107742B3CD4FC000F319E /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				2F21076F2B3CD374000F319E /* Info.plist */,
+				2F21076E2B3CD21A000F319E /* Config.xcconfig */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -231,6 +247,8 @@
 				2F21076B2B3CC176000F319E /* TicketmasterService.swift in Sources */,
 				2F21076D2B3CCE7A000F319E /* SearchViewModel.swift in Sources */,
 				2F21075E2B3CBB2E000F319E /* SearchView.swift in Sources */,
+				2F2107712B3CD424000F319E /* EnvironmentManager.swift in Sources */,
+				2F2107732B3CD48A000F319E /* Constants.swift in Sources */,
 				2F2107662B3CBCE9000F319E /* DataFormatter.swift in Sources */,
 				2F2107602B3CBB3D000F319E /* AddressResult.swift in Sources */,
 				2F2107632B3CBC26000F319E /* LocationService.swift in Sources */,
@@ -243,6 +261,7 @@
 /* Begin XCBuildConfiguration section */
 		2F21074C2B3CBAAB000F319E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2F21076E2B3CD21A000F319E /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -366,6 +385,7 @@
 				DEVELOPMENT_TEAM = G7956HFVVK;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TravelMint/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -395,6 +415,7 @@
 				DEVELOPMENT_TEAM = G7956HFVVK;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TravelMint/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -423,7 +444,7 @@
 				2F21074D2B3CBAAB000F319E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 		2F21074E2B3CBAAB000F319E /* Build configuration list for PBXNativeTarget "TravelMint" */ = {
 			isa = XCConfigurationList;
@@ -432,7 +453,7 @@
 				2F2107502B3CBAAB000F319E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 /* End XCConfigurationList section */
 
