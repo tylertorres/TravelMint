@@ -8,6 +8,7 @@
 import Foundation
 import TicketmasterFoundation
 import TicketmasterDiscoveryAPI
+import CoreLocation
 
 
 class TicketmasterService {
@@ -17,6 +18,22 @@ class TicketmasterService {
     private var configuration: Configuration?
 
     private(set) var discoveryService: DiscoveryService?
+}
+
+// MARK: Discovery Service API Calls
+extension TicketmasterService {
+    
+    // Search For Events By Location
+    func searchForEvents(_ location: CLCircularRegion) {
+        
+    }
+    
+    
+    // Search For Events By Filter Text
+    func searchForEvents(_ text: String) {
+        
+    }
+    
 }
 
 

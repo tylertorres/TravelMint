@@ -9,9 +9,6 @@ import Foundation
 import TicketmasterAuthentication
 
 struct Configuration {
-    
     let apiKey: String
-    
     let region: TMAuthentication.TMXDeploymentRegion = .US
-    
 }
