@@ -11,7 +11,8 @@ import MapKit
 
 class LocationService: NSObject {
     
-    private var addresses: [AddressResult] = []
+    var onResultsUpdated: (([AddressResult]) -> Void)?
+    var onError: ((Error) -> Void)?
     
     private lazy var searchCompleter: MKLocalSearchCompleter = {
         let searchCompleter = MKLocalSearchCompleter()
@@ -20,7 +21,11 @@ class LocationService: NSObject {
         return searchCompleter
     }()
     
-    private func getCoordinates(for address: AddressResult) async throws -> CLLocationCoordinate2D {
+    func search(with query: String) {
+        searchCompleter.queryFragment = query
+    }
+    
+    func getCoordinates(for address: AddressResult) async throws -> CLLocationCoordinate2D {
         let searchRequest = MKLocalSearch.Request()
         searchRequest.naturalLanguageQuery = DataFormatter.formatAddressResult(address)
         searchRequest.resultTypes = .address
@@ -41,11 +46,11 @@ class LocationService: NSObject {
 extension LocationService: MKLocalSearchCompleterDelegate {
     
     func completerDidUpdateResults(_ completer: MKLocalSearchCompleter) {
-        self.addresses = completer.results.map { AddressResult(title: $0.title, subtitle: $0.subtitle) }
+        let addresses = completer.results.map { AddressResult(title: $0.title, subtitle: $0.subtitle) }
+        onResultsUpdated?(addresses)
     }
     
     func completer(_ completer: MKLocalSearchCompleter, didFailWithError error: Error) {
-        print(error)
+        onError?(error)
     }
-    
 }

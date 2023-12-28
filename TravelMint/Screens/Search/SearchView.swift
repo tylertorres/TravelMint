@@ -12,9 +12,16 @@ struct SearchView: View {
     @StateObject private var model: SearchViewModel = SearchViewModel()
     
     var body: some View {
-        VStack {
-            Text("HOLAAAA")
+        NavigationStack {
+            VStack {
+                LocationSearchTextField(textInput: $model.locationTextInput)
+            }
+            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
+            .padding()
+            .navigationTitle("Search")
+            .navigationBarTitleDisplayMode(.large)
         }
+        
     }
 }
 

@@ -22,6 +22,7 @@
 		2F21076D2B3CCE7A000F319E /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F21076C2B3CCE7A000F319E /* SearchViewModel.swift */; };
 		2F2107712B3CD424000F319E /* EnvironmentManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F2107702B3CD424000F319E /* EnvironmentManager.swift */; };
 		2F2107732B3CD48A000F319E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F2107722B3CD48A000F319E /* Constants.swift */; };
+		2F2107762B3D00FE000F319E /* LocationSearchTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F2107752B3D00FE000F319E /* LocationSearchTextField.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		2F21076F2B3CD374000F319E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2F2107702B3CD424000F319E /* EnvironmentManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnvironmentManager.swift; sourceTree = "<group>"; };
 		2F2107722B3CD48A000F319E /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		2F2107752B3D00FE000F319E /* LocationSearchTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSearchTextField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +125,7 @@
 			isa = PBXGroup;
 			children = (
 				2F21075D2B3CBB2E000F319E /* SearchView.swift */,
+				2F2107752B3D00FE000F319E /* LocationSearchTextField.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -244,6 +247,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2F2107692B3CBE4F000F319E /* Configuration.swift in Sources */,
+				2F2107762B3D00FE000F319E /* LocationSearchTextField.swift in Sources */,
 				2F21076B2B3CC176000F319E /* TicketmasterService.swift in Sources */,
 				2F21076D2B3CCE7A000F319E /* SearchViewModel.swift in Sources */,
 				2F21075E2B3CBB2E000F319E /* SearchView.swift in Sources */,
