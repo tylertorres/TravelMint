@@ -12,3 +12,9 @@ struct AddressResult: Identifiable {
     let title: String
     let subtitle: String
 }
+
+extension AddressResult {
+    func toFullAddress() -> String {
+        return title + " " + subtitle
+    }
+}

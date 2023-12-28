@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct LocationSearchTextField: View {
+struct SearchTextField: View {
     
     @Binding var textInput: String
     
@@ -27,6 +27,6 @@ struct LocationSearchTextField: View {
 
 struct LocationSearchTextField_Previews: PreviewProvider {
     static var previews: some View {
-        LocationSearchTextField(textInput: .constant("Test"))
+        SearchTextField(textInput: .constant("Test"))
     }
 }

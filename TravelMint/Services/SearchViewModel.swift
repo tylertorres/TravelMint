@@ -12,6 +12,8 @@ class SearchViewModel: ObservableObject {
     
     @Published var locationTextInput = ""
     @Published var suggestedAddresses: [AddressResult] = []
+    @Published var isTextFieldFocused = false
+    @Published var selectedAddress: AddressResult?
     
     private let locationService: LocationService
     private let ticketmasterService: TicketmasterService
@@ -28,13 +30,20 @@ class SearchViewModel: ObservableObject {
         setupLocationServiceError()
     }
     
+    func onAddressResultTapped(_ address: AddressResult) {
+        self.selectedAddress = address
+        self.locationTextInput = address.toFullAddress()
+        self.suggestedAddresses = []
+        
+    }
+    
     private func setupLocationTextInput() {
         cancellable = $locationTextInput
             .debounce(for: .milliseconds(500), scheduler: DispatchQueue.main)
             .sink { [weak self] textValue in
                 guard let self else { return }
                 
-                if !textValue.isEmpty {
+                if !textValue.isEmpty && selectedAddress == nil {
                     self.locationService.search(with: textValue)
                 } else {
                     self.suggestedAddresses = []

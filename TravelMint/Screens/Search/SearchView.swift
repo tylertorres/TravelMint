@@ -14,7 +14,11 @@ struct SearchView: View {
     var body: some View {
         NavigationStack {
             VStack {
-                LocationSearchTextField(textInput: $model.locationTextInput)
+                SearchTextField(textInput: $model.locationTextInput)
+                
+                if !model.suggestedAddresses.isEmpty {
+                    SearchResultListView(addresses: $model.suggestedAddresses) { model.onAddressResultTapped($0) }
+                }
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
             .padding()
@@ -28,5 +32,11 @@ struct SearchView: View {
 struct SearchView_Previews: PreviewProvider {
     static var previews: some View {
         SearchView()
+    }
+}
+
+extension View {
+    func dismissKeyboard() {
+        UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
     }
 }
