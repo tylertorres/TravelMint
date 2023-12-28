@@ -10,17 +10,15 @@ import SwiftUI
 struct SearchView: View {
     
     @StateObject private var model: SearchViewModel = SearchViewModel()
-    @FocusState private var isTextFieldFocused: Bool
     
     var body: some View {
         NavigationStack {
             VStack {
-                SearchTextField(textInput: $model.locationTextInput, isFocused: _isTextFieldFocused)
+                SearchTextField(model: model, textInput: $model.locationTextInput)
                 
                 if !model.suggestedAddresses.isEmpty {
                     SearchResultListView(addresses: $model.suggestedAddresses) { address in
                         model.onAddressResultTapped(address)
-                        isTextFieldFocused.toggle()
                     }
                 }
             }

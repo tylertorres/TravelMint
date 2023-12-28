@@ -7,10 +7,15 @@
 
 import SwiftUI
 
+enum SearchFocusable: Hashable {
+    case isFocused
+}
+
 struct SearchTextField: View {
     
+    @ObservedObject var model: SearchViewModel
     @Binding var textInput: String
-    @FocusState var isFocused: Bool
+    @FocusState private var isFocused: SearchFocusable?
     
     var body: some View {
         HStack {
@@ -19,15 +24,17 @@ struct SearchTextField: View {
             TextField("Enter address...", text: $textInput)
                 .textFieldStyle(.plain)
                 .textInputAutocapitalization(.never)
-                .focused($isFocused)
+                .focused($isFocused, equals: .isFocused)
         }
         .padding()
         .background(.gray, in: RoundedRectangle(cornerRadius: 8).stroke(lineWidth: 1))
+        .onChange(of: isFocused) { model.isTextFieldFocused = $0 }
+        .onChange(of: model.isTextFieldFocused) { isFocused = $0 }
     }
 }
 
 struct LocationSearchTextField_Previews: PreviewProvider {
     static var previews: some View {
-        SearchTextField(textInput: .constant("Test"))
+        SearchTextField(model: SearchViewModel(), textInput: .constant("Test"))
     }
 }
