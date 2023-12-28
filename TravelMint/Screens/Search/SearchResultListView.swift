@@ -10,14 +10,14 @@ import SwiftUI
 struct SearchResultListView: View {
     
     @Binding var addresses: [AddressResult]
-    var onPress: (AddressResult) -> Void
+    
+    var onAddressResultTapped: (AddressResult) -> Void
     
     var body: some View {
         List {
             ForEach(addresses, id: \.id) { address in
                 Button(action: {
-                    onPress(address)
-                    dismissKeyboard()
+                    onAddressResultTapped(address)
                 }) {
                     VStack(alignment: .leading) {
                         Text(address.title)
@@ -35,6 +35,6 @@ struct SearchResultListView: View {
 
 struct SearchResultListView_Previews: PreviewProvider {
     static var previews: some View {
-        SearchResultListView(addresses: .constant([AddressResult(title: "19236 Briarbrook Dr", subtitle: "Tampa, FL, United States")]), onPress: {_ in })
+        SearchResultListView(addresses: .constant([AddressResult(title: "19236 Briarbrook Dr", subtitle: "Tampa, FL, United States")]), onAddressResultTapped: {_ in })
     }
 }

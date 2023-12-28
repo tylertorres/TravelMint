@@ -12,8 +12,9 @@ class SearchViewModel: ObservableObject {
     
     @Published var locationTextInput = ""
     @Published var suggestedAddresses: [AddressResult] = []
-    @Published var isTextFieldFocused = false
     @Published var selectedAddress: AddressResult?
+    
+    @Published var isTextFieldFocused = false
     
     private let locationService: LocationService
     private let ticketmasterService: TicketmasterService
@@ -33,8 +34,7 @@ class SearchViewModel: ObservableObject {
     func onAddressResultTapped(_ address: AddressResult) {
         self.selectedAddress = address
         self.locationTextInput = address.toFullAddress()
-        self.suggestedAddresses = []
-        
+        self.suggestedAddresses = [] 
     }
     
     private func setupLocationTextInput() {
