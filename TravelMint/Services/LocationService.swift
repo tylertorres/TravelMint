@@ -27,7 +27,7 @@ class LocationService: NSObject {
     
     func getCoordinates(for address: AddressResult) async throws -> CLLocationCoordinate2D {
         let searchRequest = MKLocalSearch.Request()
-        searchRequest.naturalLanguageQuery = DataFormatter.formatAddressResult(address)
+        searchRequest.naturalLanguageQuery = address.toFullAddress()
         searchRequest.resultTypes = .address
         
         let search = MKLocalSearch(request: searchRequest)
@@ -38,7 +38,6 @@ class LocationService: NSObject {
         
         return mapItem.placemark.coordinate
     }
-    
 }
 
 // MARK: MKLocalSearchCompleterDelegate Methods

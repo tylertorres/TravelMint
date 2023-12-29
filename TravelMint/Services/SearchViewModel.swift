@@ -21,6 +21,8 @@ class SearchViewModel: ObservableObject {
     
     private var cancellable: AnyCancellable?
     
+    private let defaultRadius: Double = 15.0
+    
     init(locationService: LocationService = LocationService(),
          ticketmasterService: TicketmasterService = TicketmasterService.shared) {
         self.locationService = locationService
@@ -40,6 +42,23 @@ class SearchViewModel: ObservableObject {
         self.selectedAddress = address
         self.locationTextInput = address.toFullAddress()
         self.suggestedAddresses = []
+        
+        getLocation(address)
+    }
+    
+    private func getLocation(_ address: AddressResult) {
+        Task {
+            do {
+                let coordinates = try await locationService.getCoordinates(for: address)
+                let location = coordinates.toCircularRegion(defaultRadius)
+                
+                await checkTMConfiguration()
+                
+                ticketmasterService.searchForEvents(location)
+            } catch {
+                print(error)
+            }
+        }
     }
     
     private func setupLocationTextInput() {
@@ -68,8 +87,14 @@ class SearchViewModel: ObservableObject {
         }
     }
     
-    private func configureTMService() {
+    private func checkTMConfiguration() async {
+        if !ticketmasterService.isConfigured {
+            await configureTMService()
+        }
+    }
+    
+    private func configureTMService() async {
         let configuration = Configuration(apiKey: EnvironmentManager.getTicketmasterAPIKey())
-        self.ticketmasterService.configure(configuration: configuration)
+        await self.ticketmasterService.configure(configuration: configuration)
     }
 }

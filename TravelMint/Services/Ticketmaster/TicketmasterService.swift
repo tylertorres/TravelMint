@@ -14,8 +14,12 @@ class TicketmasterService {
     
     static let shared = TicketmasterService()
 
+    var isConfigured: Bool {
+        return configuration != nil
+    }
+    
     private var configuration: Configuration?
-
+    
     private var discoveryService: DiscoveryService?
 }
 
@@ -26,8 +30,9 @@ extension TicketmasterService {
     func searchForEvents(_ location: CLCircularRegion, dateRange: (start: Date, end: Date)? = nil) {
         var criteria = DiscoveryEventSearchCriteria()
         criteria.location = location
-        
+                
         discoveryService?.eventSearch(criteria) { response in
+            print(response)
             switch response {
             case .success(let results):
                 print(results)
@@ -45,23 +50,27 @@ extension TicketmasterService {
 // MARK: Discovery Service Setup
 extension TicketmasterService {
     
-    func configure(configuration: Configuration) {
+    func configure(configuration: Configuration) async {
         guard !configuration.apiKey.isEmpty else {
             fatalError("TicketMaster api key must be set in order to use ; go to https://developer.ticketmaster.com")
         }
         
         print("Configuring Discovery API...")
         
-        TMDiscoveryAPI.shared.configure(apiKey: configuration.apiKey, region: configuration.region) { didConfigure in
-            
-            if !didConfigure {
-                TMDiscoveryAPI.shared.marketDomain = .US
+        await withCheckedContinuation { continuation in
+            TMDiscoveryAPI.shared.configure(apiKey: configuration.apiKey, region: configuration.region) { didConfigure in
+                
+                if !didConfigure {
+                    TMDiscoveryAPI.shared.marketDomain = .US
+                }
+                
+                self.discoveryService = TMDiscoveryAPI.shared.discoveryService
+                self.configuration = configuration
+                
+                print("Discovery Service Configured")
+                
+                continuation.resume()
             }
-            
-            self.discoveryService = TMDiscoveryAPI.shared.discoveryService
-            self.configuration = configuration
-            
-            print("Discovery Service Configured")
         }
     }
 }
